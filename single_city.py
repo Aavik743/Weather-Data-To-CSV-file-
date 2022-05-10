@@ -18,7 +18,6 @@ def get_data(city_name):
 def update_data(json_data):
     with codecs.open('data.csv', 'a', encoding='utf-8') as file:
         csv_file = csv.writer(file)
-        csv_file.writerow(["Name", "Longitude", "Latitude", "Temp", "Max Temp", "Min Temp"])
         for data in json_data.values():
             csv_file.writerow([data['name'], data['coord']['lon'], data['coord']['lat'], data['main']['temp'],
                                data['main']['temp_max'], data['main']['temp_min']])
